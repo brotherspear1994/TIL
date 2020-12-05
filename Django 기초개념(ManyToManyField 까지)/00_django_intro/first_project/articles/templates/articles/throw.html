@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Throw 페이지</h1>
+  <form action="{% url 'articles:catch' %}" method="GET">
+    <label for="name">데이터 입력 : </label>
+    <input type="text" id="name" name="name">
+    <input type="submit">
+  </form>
+{% endblock %}
