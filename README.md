@@ -1,9 +1,11 @@
 # 이형창의 TIL Repository
 
-## 구성
-#### 알고리즘
-- [내가 학습한 알고리즘 기본 개념들]()
-- [내가 푼 알고리즘 문제들]()
+#### *구성(TIL Table)*
+
+#### [자기소개(Introduction)](https://github.com/brotherspear1994/TIL/blob/master/README.md#%EC%9E%90%EA%B8%B0%EC%86%8C%EA%B0%9Cintroduction)
+#### 알고리즘(Algorithm)
+- [내가 학습한 알고리즘 기본 개념들(Algorithm Concepts Study)]()
+- [내가 푼 알고리즘 문제들(Alogrithm probs)]()
 
 ~~**주의(warning)**~~
 
