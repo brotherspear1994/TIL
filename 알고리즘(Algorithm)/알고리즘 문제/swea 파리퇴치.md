@@ -11,7 +11,7 @@ N x N 배열 안의 숫자는 해당 영역에 존재하는 파리의 개수를 
 아래는 N=5 의 예이다.
 
 
-![img](swea 파리퇴치./assets/fileDownload.do)
+![img](swea 파리퇴치.assets/fileDownload.do)
 
 
 M x M 크기의 파리채를 한 번 내리쳐 최대한 많은 파리를 죽이고자 한다.
@@ -21,7 +21,7 @@ M x M 크기의 파리채를 한 번 내리쳐 최대한 많은 파리를 죽이
 예를 들어 M=2 일 경우 위 예제의 정답은 49마리가 된다.
 
 
-![img](swea 파리퇴치./assets/fileDownload.do)
+![img](swea 파리퇴치.assets/fileDownload.do)
 
 
 
