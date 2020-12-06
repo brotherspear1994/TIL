@@ -6,6 +6,8 @@
 
 ### 문제
 
+[본문 링크 참고하기](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV14BgD6AEECFAYh&categoryId=AV14BgD6AEECFAYh&categoryType=CODE)
+
 점심 시간에 산책을 다니는 사원들은 최근 날씨가 더워져, 사다리 게임을 통하여 누가 아이스크림을 구입할지 결정하기로 한다.
 
 김 대리는 사다리타기에 참여하지 않는 대신 사다리를 그리기로 하였다.

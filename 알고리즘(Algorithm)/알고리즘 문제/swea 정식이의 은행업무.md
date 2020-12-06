@@ -6,6 +6,8 @@
 
 #### 문제
 
+[본문 링크 참조](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWMeRLz6kC0DFAXd&categoryId=AWMeRLz6kC0DFAXd&categoryType=CODE)
+
 삼성은행의 신입사원 정식이는 실수를 저질렀다.
 
 은행 업무가 마감되기 직전인 지금, 송금할 금액을 까먹고 말았다.
@@ -17,10 +19,6 @@
 정식이는 실수를 바로잡기 위해 당신에게 부탁을 하였다.
 
 정식이가 송금액을 추측하는 프로그램을 만들어주자.
-
-( 단, 2진수와 3진수의 값은 무조건 1자리씩 틀리다.  추측할 수 없는 경우는 주어지지 않는다. )
-
-![img](https://swexpertacademy.com/main/common/fileDownload.do?downloadType=CKEditorImages&fileId=AWMeZPm6k5MDFAXd)
 
 
 **[입력]**

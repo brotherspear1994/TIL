@@ -6,19 +6,15 @@
 
 ### 문제
 
+[본문 링크 참조](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5PzOCKAigDFAUq&categoryId=AV5PzOCKAigDFAUq&categoryType=CODE)
+
 N x N 배열 안의 숫자는 해당 영역에 존재하는 파리의 개수를 의미한다.
-
-
-
-
 
 M x M 크기의 파리채를 한 번 내리쳐 최대한 많은 파리를 죽이고자 한다.
 
 죽은 파리의 개수를 구하라!
 
 예를 들어 M=2 일 경우 위 예제의 정답은 49마리가 된다.
-
-
 
 **[제약 사항]**
 

@@ -8,7 +8,7 @@
 
 ### 1216. [S/W 문제해결 기본] 3일차 - 회문2
 
-[문제 내용](https://swexpertacademy.com/main/solvingProblem/solvingProblem.do#collapseOne)
+[본문 링크 참조](https://swexpertacademy.com/main/solvingProblem/solvingProblem.do#collapseOne)
 
 "기러기" 또는 "level" 과 같이 거꾸로 읽어도 제대로 읽은 것과 같은 문장이나 낱말을 회문(回文, palindrome)이라 한다.
 

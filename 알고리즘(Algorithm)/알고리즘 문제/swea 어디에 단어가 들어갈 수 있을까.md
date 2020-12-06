@@ -6,22 +6,11 @@
 
 ### 문제
 
+[본문 링크 참조](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5PuPq6AaQDFAUq&categoryId=AV5PuPq6AaQDFAUq&categoryType=CODE)
+
 N X N 크기의 단어 퍼즐을 만들려고 한다. 입력으로 단어 퍼즐의 모양이 주어진다.
 
 주어진 퍼즐 모양에서 특정 길이 K를 갖는 단어가 들어갈 수 있는 자리의 수를 출력하는 프로그램을 작성하라.
-
-**[예제]**
-
-N = 5, K = 3 이고, 퍼즐의 모양이 아래 그림과 같이 주어졌을 때
- 
-
-![img](swea 반복문자 지우기.assets/fileDownload.do)
-
-
-길이가 3 인 단어가 들어갈 수 있는 자리는 2 곳(가로 1번, 가로 4번)이 된다.
- 
-
-![img](swea 반복문자 지우기.assets/fileDownload.do)
 
 
 **[제약 사항]**
