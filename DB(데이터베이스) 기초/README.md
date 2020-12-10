@@ -1,5 +1,3 @@
-[TOC]
-
 # DB(데이터 베이스) ReadMe
 
 `해당 ReadMe에는 데이터 베이스 수업 동안 배운 기초 개념과 명령어들을 정리했습니다. 직접 엑셀파일 더미 데이터를 loaddata 명령어로 받아 SQL과 django ORM을 SQL lite를 통해 연습해본 파일도 함께 git에 올려두었습니다.`
