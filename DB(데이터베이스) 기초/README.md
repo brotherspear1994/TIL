@@ -1,5 +1,15 @@
 [TOC]
 
+# DB(데이터 베이스) ReadMe
+
+`해당 ReadMe에는 데이터 베이스 수업 동안 배운 기초 개념과 명령어들을 정리했습니다. 직접 엑셀파일 더미 데이터를 loaddata 명령어로 받아 SQL과 django ORM을 SQL lite를 통해 연습해본 파일도 함께 git에 올려두었습니다.`
+
+- 해당 내용 학습동안 함께 참고했던 주소 목록
+
+[MySQL documentation](https://dev.mysql.com/doc/)
+
+
+
 # SQL과 django ORM
 
 ## 기본 준비 사항
@@ -290,13 +300,14 @@ User.objects.get(pk=101).delete()
    ```python
    # orm
    User.objects.filter(country='강원도', last_name='황').values('first_name')
+   ```
 ```
    
       ```sql
    -- sql
    SELECT first_name FROM users_user
    WHERE country='강원도' AND last_name='황';
-      ```
+```
 
 
 
@@ -337,19 +348,21 @@ User.objects.get(pk=101).delete()
       ```python
    # orm
    User.objects.order_by('balance', '-age')[:10]
+   ```
 ```
    
    ```sql
    -- sql
    SELECT * FROM users_user ORDER BY balance, age DESC LIMIT 10;
    SELECT * FROM users_user ORDER BY age DESC, balance ASC LIMIT 10;
-   ```
-   
+```
+
 4. 성, 이름 내림차순 순으로 5번째 있는 사람
 
    ```python
    # orm
    User.objects.order_by('-last_name', '-first_name')[4]
+   ```
 ```
    
       ```sql
@@ -357,7 +370,7 @@ User.objects.get(pk=101).delete()
    SELECT * FROM users_user
    ORDER BY last_name DESC, first_name DESC
    LIMIT 1 OFFSET 4;
-      ```
+```
 
 
 

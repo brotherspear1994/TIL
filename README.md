@@ -1,6 +1,6 @@
 # 이형창의 TIL Repository
 
-### 목차(TIL Table)`
+### 목차(TIL Table)
 
 ##### - [자기소개(Introduction)](https://github.com/brotherspear1994/TIL/blob/master/README.md#%EC%9E%90%EA%B8%B0%EC%86%8C%EA%B0%9Cintroduction)
 
