@@ -2,8 +2,6 @@
 
 > 2020.11.13 오전 라이브
 
-[강의 코드](https://lab.ssafy.com/ssafy4/vue)
-
 
 
 ## 1. Vuex
@@ -255,8 +253,3 @@ https://www.npmjs.com/package/vuex-persistedstate
 3. 실행
    - 새로고침해도 todo가 사라지지 않는다.
    - Chrome DevTools의 Application Tab의 `LocalStorage`를 확인해보면 우리가 작성한 todo 목록이 저장되어 있는 것을 확인할 수 있다.
-
-
-
-
-

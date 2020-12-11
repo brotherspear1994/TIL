@@ -36,7 +36,7 @@ TIL
   * migrate
 
     ```bash
-  $ python manage.py sqlmigrate users 0001
+  python manage.py sqlmigrate users 0001
     ```
 
 * `db.sqlite3` 활용
@@ -44,9 +44,9 @@ TIL
   * `sqlite3`  실행
 
     ```bash
-    $ ls
+    ls
     db.sqlite3 manage.py ...
-    $ sqlite3 db.sqlite3
+    sqlite3 db.sqlite3
     ```
 
   * csv 파일 data 로드
@@ -82,11 +82,8 @@ TIL
 
 ## 문제
 
-> 아래의 문제들을 보면서 서로 대응되는 ORM문과 SQL문을 작성하시오.
+> 문제와 내가 직접 작성해 보는 답안
 >
-> **vscode 터미널을 좌/우로 나누어 진행하시오. (sqlite / shell_plus)**
-
-`.headers on` 을 켜고 작성해주세요.
 
 
 

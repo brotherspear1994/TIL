@@ -2,8 +2,6 @@
 
 > 2020.11.16 오후 라이브
 
-[강의 코드](https://lab.ssafy.com/ssafy4/vue/tree/master/03_server_client)
-
 
 
 ## 1. Auth

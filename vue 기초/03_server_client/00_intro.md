@@ -2,12 +2,6 @@
 
 > 2020.11.16 오전 라이브
 
-[강의 코드](https://lab.ssafy.com/ssafy4/vue/tree/master/03_server_client)
-
-
-
-6개월 간 배운 개념적인 내용을 활용해 자신만의 큰 흐름을 만들어 보세요. 😁
-
 
 
 ## 1. [Server](https://ko.wikipedia.org/wiki/%EC%84%9C%EB%B2%84)

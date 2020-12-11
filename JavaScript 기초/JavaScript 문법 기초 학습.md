@@ -171,7 +171,7 @@ cosole.log(x)
 
 - `var`로 선언한 변수가 선언 이전에 참조 될 수 있는 현상.
 
-- hoisting은 우리가 활용하는 기술 X, 피해야 하는 상황임.
+- hoisting은 활용하는 기술 X, 피해야 하는 상황임.
 
   ```javascript
   console.log(name)

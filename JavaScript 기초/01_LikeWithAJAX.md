@@ -4,10 +4,6 @@
 
 > 2020.10.14 오후 라이브
 
-[강의 코드](https://lab.ssafy.com/ssafy4/javascript)
-
-gitlab에 스켈레톤 코드(`skeleton`)와 수업 시간에 완성한 코드(`completion`)를 같이 업로드 했습니다.
-
 
 
 ## 1. 프로젝트 개요
@@ -193,7 +189,7 @@ def like(request, article_pk):
 
 **기존 form 속성 삭제**
 
-우리는 기존의 form 방식으로 요청을 보내지 않기 때문에 `action`과 `method`속성을 삭제한다.
+기존의 form 방식으로 요청을 보내지 않기 때문에 `action`과 `method`속성을 삭제한다.
 
 ```html
 <form class="d-inline">
@@ -515,7 +511,7 @@ forms.forEach(function (form) {
    </form>
    <!-- 변경 전 -->
    {{ article.like_users.all|length }} 명이 이 글을 좋아합니다.<br>
-    ```
+   ```
 
     ```html
    <!-- 변경 후 -->
@@ -524,7 +520,7 @@ forms.forEach(function (form) {
    	  {{ article.like_users.all|length }}
    	</span> 명이 이 글을 좋아합니다.
    </p>
-   ```
+    ```
 
    ```javascript
    .then(function (response) {
@@ -557,8 +553,6 @@ forms.forEach(function (form) {
 
 
 ## 참고 링크
-
-아래의 수업 시간에 참고한 자료거나 추가적인 학습에 도움이 될만한 링크입니다.
 
 | 문서 제목                                                    | 비고                   |
 | ------------------------------------------------------------ | ---------------------- |

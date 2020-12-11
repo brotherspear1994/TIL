@@ -2,8 +2,6 @@
 
 > 2020.11.16 오전 라이브
 
-[강의 코드](https://lab.ssafy.com/ssafy4/vue/tree/master/03_server_client)
-
 
 
 ## 1. SOP & CORS
@@ -57,6 +55,7 @@
    ```
 
 3. Client(Browser)
+   
    - Server로부터 응답을 받은 브라우저는 Response Header의 `Access-Control-Allow-Origin`에 Origin에 대한 정보가 있는지 여부를 확인한다.
 
 
@@ -64,12 +63,6 @@
 ### 1.4. CORS with HTTP requests & responses
 
 https://fetch.spec.whatwg.org/#http-cors-protocol
-
-- whatwg에 작성된 CORS 관련 내용을 추가적으로 읽어보면서 정확하게 CORS가 무엇이고 어떻게 동작하는지 확인 해보세요.
-
-- 요청을 보낼 때 어떤 일이 일어나고 Server에서 응답을 줄 때 우리가 배웠던 내용 외에 어떠한 추가적인 요소를 더할 수 있는지도 확인 해보세요.
-
-- 스스로 학습의 필요성을 느끼며 찾아가는 과정은 여러 분들이 개발자로서 성장하는 큰 자양분이 될 것입니다.
 
 
 
@@ -84,8 +77,9 @@ https://fetch.spec.whatwg.org/#http-cors-protocol
 
 
 1. Server & Client 환경 세팅
-   - 기본적인 가상 환경 세팅 및 마이그레이션 작업 확인
-
+   
+- 기본적인 가상 환경 세팅 및 마이그레이션 작업 확인
+   
 2. Server
 
    아래의 요소가 어떠한 형태로 구성 되어있는지 확인하고 Postman을 활용해 테스트
@@ -191,7 +185,7 @@ https://fetch.spec.whatwg.org/#http-cors-protocol
 
 6. Client - Todo Update
 
-   - Server의 DB에 반영된 todo의 업데이트 상황을 현재 우리가 보고 있는 화면에도 반영
+   - Server의 DB에 반영된 todo의 업데이트 상황을 현재 보고 있는 화면에도 반영
 
    ```javascript
    updateTodoStatus: function (todo) {
@@ -201,7 +195,7 @@ https://fetch.spec.whatwg.org/#http-cors-protocol
      }
      axios.put(`http://127.0.0.1:8000/todos/${todo.id}/`, todoItem)
        .then(() => {
-       // todo의 값을 토글해서 우리가 보는 화면도 반영해주자
+       // todo의 값을 토글해서 현재 내가 보는 화면도 반영해주자
        todo.completed = !todo.completed
      })
      ...
@@ -233,15 +227,11 @@ https://fetch.spec.whatwg.org/#http-cors-protocol
 
 8. 참고
    - Vue Router를 활용 했을 때 Network Tab를 통해 Reload가 발생하는지 확인해보자
-   - 변화가 없다는 것은 우리는 Server로부터 받은 1장의 비어있는 문서에서 모든 것을 처리한다는 말
-
-
+   - 변화가 없다는 것은 는 Server로부터 받은 1장의 비어있는 문서에서 모든 것을 처리한다는 말
 
 
 
 ## 참고 자료
-
-위 자료에 활용한 이미지 등은 모두 아래에 작성된 출처에 기반하였습니다.
 
 | 문서 제목                                                    | 비고      |
 | ------------------------------------------------------------ | --------- |

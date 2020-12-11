@@ -2,14 +2,6 @@
 
 > 2020.11.09 오후 라이브
 
-[강의 코드](https://lab.ssafy.com/ssafy4/vue)
-
-
-
-강의 및 webex 시간에 활용했던 코드를 중심으로 살펴보시면 학습에 도움이 될 거에요. 😊
-
-추가적으로 공식 링크를 걸어 놓을테니 문서에 나와있는 추가적인 내용도 한번씩 사용해보세요. 😁
-
 
 
 ## 핵심
@@ -65,7 +57,7 @@ https://kr.vuejs.org/v2/guide/class-and-style.html
 3. 하위 컴포넌트에게 데이터를 내려 줄 때 활용
    
 - 수요일 진행 예정
-   
+  
 4. shortcut 
 
    https://kr.vuejs.org/v2/guide/syntax.html#v-bind-%EC%95%BD%EC%96%B4
@@ -230,7 +222,3 @@ https://kr.vuejs.org/v2/guide/filters.html
 
    - src 속성에 CDN 주소를 넣어서 사용하면 된다.
    - 공식 문서를 보면서 어떠한 API가 존재하는지 확인해보고 한번씩 사용해보자.
-
-3. 최종적으로 점심 메뉴 추천과 로또 번호 추천 로직을 작성해보자
-   
-   - 코드는 gitlab 원격 저장소를 확인해주세요.

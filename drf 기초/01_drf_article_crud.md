@@ -1,6 +1,6 @@
 # 01_drf_article_crud
 
-> 2020.10.05 오후 라이브
+> 2020.10.05 오후 라이브 수업 필기
 
 
 
@@ -8,7 +8,7 @@
 
 **Article CRUD**
 
-*"Django에서 진행한 Article 모델의 CRUD Operation을 HTML이 아닌 JSON으로 만들어 응답하자"*
+*"Django에서 진행한 Article 모델의 CRUD Operation을 HTML이 아닌 JSON으로 만들어 응답하기"*
 
 
 
@@ -439,7 +439,7 @@ def article_detail_update_delete(request, article_pk):
 
 
 
-이제 우리는 2개의 URL와 함수를 통해 CRUD Operation을 수행할 수 있게 되었다. 
+이제 2개의 URL와 함수를 통해 CRUD Operation을 수행할 수 있게 되었다. 
 
 **Article LIST & CREATE**
 
@@ -461,7 +461,7 @@ def article_detail_update_delete(request, article_pk):
 
 ## 참고 자료
 
-아래의 수업 시간에 참고한 자료거나 추가적인 학습에 도움이 될만한 링크입니다.
+참고할만한 링크.
 
 | 문서 제목                                                    | 비고                            |
 | ------------------------------------------------------------ | ------------------------------- |

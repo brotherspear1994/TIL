@@ -2,7 +2,7 @@
 
 > 2020.10.05 오후 라이브
 >
-> 실제 라이브에서 다루지 않았던 내용까지 추가로 포함되어 있습니다. 조금 더 심화적인 내용을 다루니 01번 문서 내용이 이해되지 않는다면 우선적으로 해당 내용을 충분한 학습 이후에 보시는 것을 추천합니다.
+> 실제 라이브에서 다루지 않았던 내용까지 추가로 포함시킴.
 
 
 
@@ -12,9 +12,9 @@
 
 *"1:N Model Relation에서의 Serialization"*
 
-기존에 작성했던 단일 모델에서의 직렬화가 아닌 1:N relation에서 직렬화 작업을 진행해보자
+기존에 작성했던 단일 모델에서의 직렬화가 아닌 1:N relation에서 직렬화 작업을 진행해보기
 
-이 과정에서 발생하는 이슈의 원인을 찾아보고 해결하는 과정까지 같이 알아보자
+이 과정에서 발생하는 이슈의 원인을 찾아보고 해결하는 과정까지 같이 알아보는 시간을 가졌습니다.
 
 
 
@@ -342,7 +342,7 @@ class ArticleSerializer(serializers.ModelSerializer):
 
 *커스텀 필드가 원래 Django Model이 알고 있는 필드의 이름이 아니라면(이 상황에서는 `comment_count`) `source` 속성을 통해 어떤 자원을 통해서 가져올지 명시해야 한다.* `source`에 대한 
 
-자세한 내용은 [공식 문서](https://www.django-rest-framework.org/api-guide/fields/#source)를 통해서 확인할 수 있습니다. 
+자세한 내용은 [공식 문서](https://www.django-rest-framework.org/api-guide/fields/#source)를 통해서 확인 가능.
 
 ```python
 # serializers.py
@@ -375,7 +375,7 @@ class ArticleSerializer(serializers.ModelSerializer):
 
 모든 코드가 정상적으로 동작하는 것처럼 보이지만 딱 한 가지 문제점이 더 해결이 안된 듯 하다. 게시글을 작성하면 `comment_set`과 `comment_count` 필드가 form validation을 통과하지 못한다. Meta 클래스의 필드에는 넣어 줬지만 이 필드들은 form을 통해 넘겨주는 데이터가 아니기 때문에 발생한 오류다.
 
-이는 우리가 아까 배웠던 읽기 전용 필드의 설정으로 쉽게 해결할 수 있다. 
+이는 아까 배웠던 읽기 전용 필드의 설정으로 쉽게 해결할 수 있다. 
 
 아래와 같이 코드를 수정하고 다시 요청을 보내면 정상적으로 글이 작성된다.
 

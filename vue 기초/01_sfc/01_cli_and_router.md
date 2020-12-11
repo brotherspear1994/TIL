@@ -2,14 +2,6 @@
 
 > 2020.11.11 오전 라이브
 
-[강의 코드 -  기본 프로젝트 연습](https://lab.ssafy.com/ssafy4/vue/tree/master/01_sfc/my-first-vue-cli-project)
-
-[강의 코드 - Lunch & Lotto](https://lab.ssafy.com/ssafy4/vue/tree/master/01_sfc/lunch-lotto-with-vue-cli)
-
-
-
-아래의 내용과 라이브 시간에 활용한 코드를 같이 살펴보며 학습하면 됩니다. 😊
-
 
 
 ## 1. Vue CLI Project
@@ -208,7 +200,7 @@ const routes = [
   - 이 링크는 `index.js` 파일에 정의한 경로에 등록한 특정한 컴포넌트와 매핑된다.
 
   - HTML5 히스토리 모드에서, `router-link`는 클릭 이벤트를 차단하여 브라우저가 페이지를 다시 로드하지 않도록 한다.
-  - a 태그지만 우리가 알고 있는 GET 요청을 보내는 a 태그와 조금 다르게 기본 GET 요청을 날리는 이벤트를 제거한 형태로 구성
+  - a 태그지만 기존에 알고 있던 GET 요청을 보내는 a 태그와 조금 다르게 기본 GET 요청을 날리는 이벤트를 제거한 형태로 구성
 
 - **router-view**
 
