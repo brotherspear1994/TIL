@@ -8,7 +8,7 @@
 
 [본문 링크 참조](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWQmA4uK8ygDFAXj&categoryId=AWQmA4uK8ygDFAXj&categoryType=CODE)
 
-#### 풀이
+#### 풀이1
 
 ```python
 delta = ((0,1),(1,0),(-1,0),(0,-1),(1,1),(-1,1),(-1,-1),(1,-1))
@@ -72,3 +72,64 @@ for tc in range(1,T+1):
 
 - 당시 기억으로는 꽤 어려웠던 문제로 기억한다.
 - 평소와는 다르게 설명은 주석을 통해 달아놓았다.(시험이나 중요한 문제를 제외한 평소 연습문제를 풀때는 문제를 많이 풀어보는게 중요하다 생각해 시간을 할애해 주석을 잘 달지는 않는다.)
+
+### 풀이2
+
+```python
+dr = [-1,-1,0,1,1,1,0,-1]
+dc = [0,1,1,1,0,-1,-1,-1]
+
+def check(i,j,color):
+    for k in range(8): # 델타 길이 만큼 반복
+        ni, nj = i + dr[k], j + dc[k] # 탐색할 좌표 계산
+        changeList = [] # 변경할 좌표 리스트
+        needtochange = False # 변경여부를 저장
+
+        # 한 방향으로 결정되면 꼭 나아가면서 돌을 변경할 준비
+        while ni >= 0 and ni < N and nj >= 0 and nj < N: # 보드안에서 반복
+            if board[ni][nj] == 0:
+                break
+            if board[ni][nj] == color: # 새로놓은 돌과 탐색한 돌색이 같으면
+                needtochange = True    # 변경을 해야한다고 표시
+                break
+            else:
+                changeList.append([ni,nj])
+                ni = ni+dr[k]
+                nj = nj+dc[k]
+
+        if needtochange and changeList:
+            for c in changeList:
+                board[c[0]][c[1]] = color
+
+T = int(input())
+for tc in range (1,T+1):
+    N, M = map(int,input().split())
+    board = [[0 for _ in range(N)] for _ in range(N)]
+    center = N // 2
+    board[center-1][center-1] = 2
+    board[center][center] = 2
+    board[center-1][center] = 1
+    board[center][center-1] = 1
+
+    # for row in board:
+    #     print(row)
+
+    for k in range(M):
+        j,i,color = map(int,input().split())
+        board[i-1][j-1] = color
+        # for row in board:
+        #     print(row)
+        check(i-1,j-1,color)
+    # 게임종료 후 돌갯수 세기
+    cnt_b = 0
+    cnt_w = 0
+    for i in range(len(board)):
+        for j in range(len(board)):
+            if board[i][j] == 1: cnt_b += 1
+            if board[i][j] == 2: cnt_w += 2
+    print("#{} {} {}".format(tc, cnt_b, cnt_w))
+```
+
+- 처음 문제를 풀고 난 후, 교수님의 풀이방식도 익혀봤다.
+- 첫번째 방식과 매우 유사해 보이지만, 이번에는 check함수를 별도로 만들어 그 안에서 게임을 실행시키고, 게임 종료 후에는 돌의 갯수만 세어주면 되는 방식이다.
+- 구성상 교수님의 풀이가 조금 더 깔끔한 느낌이 나, 개인 시간 동안 교수님의 풀이법도 혼자 학습해 봤다.

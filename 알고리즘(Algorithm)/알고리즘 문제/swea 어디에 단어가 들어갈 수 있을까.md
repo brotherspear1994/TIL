@@ -39,7 +39,7 @@ N X N 크기의 단어 퍼즐을 만들려고 한다. 입력으로 단어 퍼즐
 
 (t는 테스트 케이스의 번호를 의미하며 1부터 시작한다.)
 
-#### 풀이
+#### 풀이1
 
 ```python
 '''
@@ -105,3 +105,48 @@ for tc in range(1, T+1):
 - for문으로 배열을 순회하며 stack을 같이 활용해 특정 길이(K)를 갖는 퍼즐을 탐색하여 counting 해주면 풀 수 있는 문제이다.
 - for문을 이용한 완전탐색이라고 할 수 있을 것 같다.
 - 가로 길이와 세로 길이를 따로 탐색해주는 것이 포인트다.
+
+### 풀이2
+
+```python
+T = int(input())
+for tc in range(1,T+1):
+    N,K = map(int,input().split())
+    puzzle = [list(map(int,input().split())) for _ in range(N)]
+    # for row in puzzle:
+    #     print(row)
+    dist = 0 # 자릿수
+
+    for i in range(N): # 가로방향 검사
+        words = 0 # 빈칸수
+        cur = 0 # 현재위치
+        while cur < N:
+            if puzzle[i][cur] == 1: # 1일때 카운팅 시작
+                words += 1
+                if words == K and cur == N-1:
+                    dist += 1
+            else: # 0 일때
+                if words == K:
+                    dist += 1
+                words = 0
+            cur += 1
+
+    for i in range(N): # 세로방향 검사
+        words = 0 # 빈칸수
+        cur = 0 # 현재위치
+        while cur < N:
+            if puzzle[cur][i] == 1: # 1일때 카운팅 시작
+                words += 1
+                if words == K and cur == N-1:
+                    dist += 1
+            else: # 0 일때
+                if words == K:
+                    dist += 1
+                words = 0
+            cur += 1
+    print("{} {}".format(tc, dist))
+```
+
+- 맨 처음 문제를 푼 후 3일 정도지나 교수님의 풀이도 학습해봤다.
+- 강의를 들으며 이해를 하고, 이후 개인시간에 혼자 코드를 안보고 짜보는 연습을 가졌다.
+- 이번 풀이는 stack을 활용하지 않고 for문과 while문을 함께 사용해 푸는 방식이다.
