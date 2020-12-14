@@ -36,7 +36,7 @@
 
 \#부호와 함께 테스트 케이스의 번호를 출력하고, 공백 문자 후 답을 출력한다.
 
-#### 풀이
+#### 풀이1
 
 ```python
 for tc in range(1, 11):
@@ -100,3 +100,84 @@ for tc in range(1, 11):
 - 이 문제도 마찬가지로 `후위표기식`에 대한 개념을 어느정도 알고 있는 상태에서 풀어야만 한다.
 - 코드상으로는 길이가 길어 문제가 어려워 보이지만, 입력값을 받고 우선 후위표기식으로 다시 정리해 준다.
 - 이후 후위표기식으로 정리된 데이터를 스택을 활용해 다시 차근차근 계산해주면 된다.
+
+
+
+#### 풀이2
+
+```python
+T = 10
+operator = ['+', '*']
+braket = ["(", ")"]
+
+def isNumber(x):  # 숫자인지 아닌지 판단
+    if x not in operator and x not in braket:
+        return True
+    else:
+        return False
+
+
+def isp(token):  # 토큰의 우선순위 리턴 => 스택안의 토큰의 우선순위
+    if token == "*" or token == "/":
+        return 2
+    elif token == "+" or token == "-":
+        return 1
+    elif token == "(":
+        return 0
+
+
+def icp(token):  # 스택안으로 들어오는 토큰의 우선순위
+    if token == "*" or token == "/":
+        return 2
+    elif token == "+" or token == "-":
+        return 1
+    elif token == "(":
+        return 3
+
+
+for tc in range(1, T + 1):
+    N = int(input())
+    infix = list(input())
+    # print(infix)
+    postfix = []
+    stack = []
+    for c in infix:
+        if isNumber(c):  # 숫자면
+            postfix.append(c)
+        elif c == ")":  # 닫는 괄호면 -> 여는괄호 만날때까지 팝
+            while len(stack) > 0:  # 스택이 비어있지 않는 동안
+                top = stack.pop()
+                if top == "(":  # 여는 괄호 만나면 끝! (버림)
+                    break
+                postfix.append(top)
+        else:  # 나머지 연산자면(닫는 괄호가 아닌 연산자)
+            if len(stack) == 0:  # 스택이 비어있으면 스택에 그냥 넣기
+                stack.append(c)
+            else:  # 아니면 우선순위 비교
+                while len(stack) > 0:  # 스택이 빌때까지 반복
+                    top = stack[-1]  # 스택의 가장 위의 원소
+                    if icp(c) > isp(top):  # 토큰의 우선순위가 스택의 top의 우선순위 보다 크면
+                        stack.append(c)  # 스택에 넣음
+                        break
+                    postfix.append(stack.pop())
+    while stack:
+        postfix.append(stack.pop())
+    # print(postfix)
+    # 후위 표기법을 계산 (스택을 이용해서)
+    stack = []
+    for c in postfix:
+        if c not in operator:  # 숫자면
+            stack.append(int(c))
+        else:
+            op1 = stack.pop()
+            op2 = stack.pop()
+            if c == "+":
+                stack.append(op2 + op1)
+            elif c == "*":
+                stack.append(op2 * op1)
+    result = stack.pop()
+    print("#{} {}".format(tc, result))
+```
+
+- 내가 직접 문제를 푼 후, 교수님의 풀이법도 익혔다. 코드에 대한 설명은 주석을 통해 간략하게 나마 남겨놓았다.
+- 교수님 풀이 시간 후에는 코드를 이해하는 시간을 갖고, 안보고 혼자 코드를 짜보는 시간도 가졌다.

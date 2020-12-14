@@ -11,10 +11,10 @@
 NxN 배열에 숫자가 들어있다. 한 줄에서 하나씩 N개의 숫자를 골라 합이 최소가 되도록 하려고 한다. 단, 세로로 같은 줄에서 두 개 이상의 숫자를 고를 수 없다.
 
 조건에 맞게 숫자를 골랐을 때의 최소 합을 출력하는 프로그램을 만드시오.
- 
+
 
 예를 들어 다음과 같이 배열이 주어진다.
- 
+
 
 | 2    | 1    | 2    |
 | ---- | ---- | ---- |
@@ -28,17 +28,17 @@ NxN 배열에 숫자가 들어있다. 한 줄에서 하나씩 N개의 숫자를 
  
 
 **[입력]**
- 
+
 
 첫 줄에 테스트 케이스 개수 T가 주어진다. 1≤T≤50
- 
+
 
 다음 줄부터 테스트 케이스의 첫 줄에 숫자 N이 주어지고, 이후 N개씩 N줄에 걸쳐 10보다 작은 자연수가 주어진다. 3≤N≤10
 
  
 
 **[출력]**
- 
+
 
 각 줄마다 "#T" (T는 테스트 케이스 번호)를 출력한 뒤, 합계를 출력한다.
 
@@ -149,3 +149,67 @@ for tc in range(1,int(input())+1):
 - 주어진 배열을 for문을 통해 탐색하며, 조건에 맞게 숫자를 골라 가능한 모든 경우의 수에서 최소합을 골라내는 문제이다.
 - 해당 문제도 마찬가지로, 이전 문제들 처럼 재귀함수와 Stack(while문 Stack)을 이용해 두 가지 방식으로 풀어보았다.
 - 가능하다면 다양한 방법의 풀이를 익혀보려고 노력하는 중이다.
+
+
+
+#### 풀이 3
+
+```python
+def find(n,s): #n: 현재 행, s: 총합
+    global minV
+    if n == N: # 순열을 완성하면
+        #최소값인지 판단
+        if s < minV:
+            minV = s
+        return
+    elif minV <= s: # 백트레킹
+        return  #순열완성이 완성되지 않았지만 이미 최소가 아니면 종료
+    else:
+        for i in range(N):
+            if u[i] == 0:
+                u[i] = 1
+                find(n+1,s+arr[n][i])
+                u[i] = 0
+
+for tc in range(1,int(input())+1):
+    N = int(input())
+    arr = [list(map(int,input().split())) for _ in range(N)]
+    # for row in arr:
+    #     print(row)
+    # print()
+    u = [0 for _ in range(N)] #방문배열
+    minV = 10000
+    find(0,0) # 0행에서 시작, 총합: 0
+    print("#{} {}".format(tc, minV))
+```
+
+- 이후 교수님의 풀이법도 익혀보는 시간을 가졌다. 풀이 1과 유사하게 재귀함수를 이용해 풀지만, 다소 차이가 나는 코드이다.
+
+#### 풀이 4
+
+```python
+def perm(k, cur_sum): # cur_sum 0~k~1행에 선택한 값들의 합
+    global ans;
+    if ans <= cur_sum: return
+    if k == N:
+        ans = min(ans,cur_sum)
+        # print(S)
+    else:
+        for i in range(k, N):
+            cols[k], cols[i] = cols[i], cols[k]
+            perm(k + 1, cur_sum + arr[k][cols[k]])
+            cols[k], cols[i] = cols[i], cols[k]
+
+
+for tc in range(1,int(input())+1):
+    N = int(input())
+    arr = [list(map(int,input().split())) for _ in range(N)]
+    cols = [i for i in range(N)]
+    ans = 0xfffff
+
+    perm(0,0)
+    print(ans)
+```
+
+- 풀이4는 풀이3과 유사하게 재귀함수로 순열을 만들어 나아가며, 순열을 전부 완성했을 때의 모든 경우의 수(몯모든 순열에 대해서)에 대해서 ans 값을 최소값으로 계속 갱신해 주는 풀이이다.
+- 어떻게 보면 재귀함수로 들어 갈때 기존의 거리에 추가 거리를 더 해주며 각각의 경우의 수들을 갱신해 나간다는 점에서 당시에는 아직 배우지 않은 다익스트라와 조금이나마 유사한 것 같다.
