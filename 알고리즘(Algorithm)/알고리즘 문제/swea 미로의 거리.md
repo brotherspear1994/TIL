@@ -151,3 +151,45 @@ for tc in range(1,T+1):
 - DFS 혹은 BFS 스택을 이용해 미로의 거리를 구하는 매우 기본적인 DFS, BFS 문제이다.
 - 미로를 이동할 때는 델타 무브를 이용해 사방탐색을 실시해 주면 된다.
 - 난이도가 낮고 매우 기본적인 문제라고 할 수있다.
+
+
+
+#### 풀이3
+
+```python
+dr = [-1,0,1,0]
+dc = [0,-1,0,1]
+def bfs(row,col,dis):
+    global ans_bool
+    global final_dis
+
+    maze[row][col] = 1
+    dis += 1
+    for k in range(4):
+        nr = row + dr[k]
+        nc = col + dc[k]
+        if 0 <= nr < N and 0 <= nc < N and maze[nr][nc] == 0:
+            bfs(nr, nc, dis)
+        elif 0 <= nr < N and 0 <= nc < N and maze[nr][nc] == 3:
+            ans_bool = True
+            final_dis = dis
+
+for tc in range(1, int(input())+1):
+    N = int(input())
+    maze = [list(map(int, input())) for _ in range(N)]
+    # for m in maze:
+    #     print(m)
+    # print()
+    final_dis = 0
+    ans_bool = False
+    for i in range(N):
+        for j in range(N):
+            if maze[i][j] == 2:
+                ans = bfs(i,j,-1)
+    if ans_bool:
+        print('#{} {}'.format(tc, final_dis))
+    else:
+        print('#{} 0'.format(tc))
+```
+
+- 추가 학습 내용

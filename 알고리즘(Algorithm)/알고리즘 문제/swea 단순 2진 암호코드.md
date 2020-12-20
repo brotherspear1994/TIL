@@ -8,7 +8,7 @@
 
 [본문 링크 참고하기](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV15FZuqAL4CFAYD&categoryId=AV15FZuqAL4CFAYD&categoryType=CODE)
 
-#### 풀이
+#### 풀이1
 
 ```python
 pwd = ['0001101','0011001','0010011','0111101','0100011',
@@ -107,3 +107,39 @@ for tc in range(1, int(input())+1):
 #     print("#{} {}".format(tc, cnt))
 ```
 
+
+
+#### 풀이2
+
+```python
+Decrytion = {'0001101':0, '0011001':1, '0010011':2, '0111101': 3, '0100011':4, '0110001':5, '0101111': 6,
+             '0111011':7, '0110111':8, '0001011':9}
+
+def Data_set(code):
+    global N, M, Data
+    for i in range(M-1,-1,-1):
+        if code[i] == '1':
+            Data = code[i-55:i+1]
+            return Data
+
+for tc in range(1, int(input())+1):
+    N, M = map(int, input().split())
+    code = [input() for _ in range(N)]
+    Data = ''
+    for n in range(N):
+        Data_set(code[n])
+    # print(tc, Data)
+    start = 0
+    end = 6
+    result_stack = []
+    for i in range(8):
+        result_stack.append(Decrytion[Data[start:end+1]])
+        start += 7
+        end += 7
+    # print(result_stack)
+    ans_sub = (result_stack[0]+result_stack[2]+result_stack[4]+result_stack[6])*3+result_stack[1]+result_stack[3]+result_stack[5]+result_stack[7]
+    ans = 0
+    if ans_sub%10==0:
+        ans = sum(result_stack)
+    print("#%d" % tc, ans)
+```
