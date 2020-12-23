@@ -88,3 +88,35 @@ for tc in range(1,int(input())+1):
 - 내 풀이와 교수님의 풀이 방식이 큰 차이는 없지만, 백트랙킹의 위치를 놓는 부분이 교수님의 풀이법이 거의 정답과 가깝다. 내 방식의 백트래킹(가지치기)는 효율적으로 런타임을 줄일 수 없었다.
 - 이 '최대상금' 문제를 통해 재귀함수를 실행할때 백트랙킹을 어떻게 해야하는지, 또 백트랙킹의 개념에 대해 좀더 깊이 느낄 수 있었다.
 - 특히 특정 깊이를 기준으로 이후의 깊이에서 유망하지 않은 정답(혹은 불필요한 과정)은 가지치기를 해줌으로써 그 뒤의 과정에서는 비효율이 발생하지 않도록 하는 것이 포인트이다.
+
+
+
+#### 풀이3
+
+```python
+for tc in range(1,int(input())+1):
+    info = list(map(str, input().split()))
+    cnt = int(info[1])
+    arr = list(map(int, info[0]))
+    N = len(arr)
+    ans = 0
+    visit = [set() for _ in range(11)]
+    def backtrack(k):
+        global ans
+        num = int(''.join(map(str, arr)))
+        if num in visit[k]: return
+        visit[k].add(num)
+        if k == cnt:
+            if ans < num:
+                ans = max(ans,num)
+        else:
+            for i in range(N-1):
+                for j in range(i+1,N):
+                    arr[i], arr[j] = arr[j], arr[i]
+                    backtrack(k+1)
+                    arr[i], arr[j] = arr[j], arr[i]
+    backtrack(0)
+    print("#{} {}".format(tc, ans))
+```
+
+- 이후에 추가적으로 백트랙킹을 활용한 풀이를 한개 더 학습하고 연습하는 시간도 가졌다.
