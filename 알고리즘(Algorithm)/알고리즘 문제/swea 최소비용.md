@@ -131,3 +131,61 @@ for tc in range(1,int(input())+1):
 ```
 
 - 교수님 풀이를 바탕으로 다시 학습해봄.
+
+#### 풀이3
+
+```python
+'''
+3
+3
+0 2 1
+0 1 1
+1 1 1
+5
+0 0 0 0 0
+0 1 2 3 0
+0 2 3 4 0
+0 3 4 5 0
+0 0 0 0 0
+5
+0 1 1 1 0
+1 1 0 1 0
+0 1 0 1 0
+1 0 0 1 1
+1 1 1 1 1
+'''
+import heapq
+
+dx = [-1,0,1,0]
+dy = [0,-1,0,1]
+
+def dijkstra():
+    dis[0][0] = 0
+    heap = []
+    heapq.heappush(heap, (dis[0][0], 0, 0))
+
+    while heap:
+        weight, x, y = heapq.heappop(heap)
+        for k in range(4):
+            nx = x + dx[k]
+            ny = y + dy[k]
+            if 0 <= nx < N and 0 <= ny < N:
+                cost = arr[nx][ny] - arr[x][y]
+                if cost < 0:
+                    cost = 0
+                if dis[nx][ny] > dis[x][y]+1+cost:
+                    dis[nx][ny] = dis[x][y]+1+cost
+                    heapq.heappush(heap, (dis[nx][ny], nx, ny))
+    return dis[N-1][N-1]
+
+for tc in range(1, int(input())+1):
+    N = int(input())
+    arr = [list(map(int,input().split())) for _ in range(N)]
+
+    INF = 0xffffffff
+    dis = [[INF]*N for _ in range(N)]
+
+    print("#{} {}".format(tc, dijkstra()))
+```
+
+- heap 라이브러리를 사용한 풀이 방법.

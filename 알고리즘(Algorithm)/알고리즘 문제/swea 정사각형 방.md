@@ -44,7 +44,7 @@ Ai, j는 모두 서로 다른 수이다.
 두 번째 테스트 케이스는 3 또는 6이 적힌 곳에 있어야 한다.
 
 
-#### 풀이
+#### 풀이1
 
 ```python
 dr = [-1, 1, 0, 0]
@@ -92,4 +92,55 @@ for tc in range(1, T + 1):
                     continue
     room_number = rooms[max_idx[0]][max_idx[1]]
     print("#{} {} {}".format(tc, room_number, max_move))
+```
+
+
+
+#### 풀이2(20201107)
+
+```python
+from collections import deque
+
+dx = [-1,0,1,0]
+dy = [0,-1,0,1]
+
+def bfs(x, y):
+    cnt = 0
+    Q = deque()
+    Q.append((x,y))
+    while Q:
+        x,y = Q.popleft()
+        for k in range(4):
+            nx = x+dx[k]
+            ny = y+dy[k]
+            if 0<= nx < N and 0<= ny < N and arr[nx][ny] == arr[x][y]+1:
+                Q.append((nx,ny)); cnt+=1
+    return cnt
+
+
+for tc in range(1,int(input())+1):
+    N = int(input())
+    arr = [list(map(int, input().split())) for _ in range(N)]
+    # for row in arr:
+    #     print(row)
+    # print()
+    max_cnt = 0
+    min_room_num = 0xfffffff
+    ans_x = -1
+    ans_y = -1
+    for i in range(N):
+        for j in range(N):
+            cnt = bfs(i,j)
+            if cnt > max_cnt:
+                min_room_num = arr[i][j]
+                max_cnt = cnt
+                ans_x = i
+                ans_y = j
+            elif cnt == max_cnt:
+                if arr[i][j] < min_room_num:
+                    min_room_num = arr[i][j]
+                    ans_x = i
+                    ans_y = j
+
+    print("#{} {} {}".format(tc, arr[ans_x][ans_y], max_cnt+1))
 ```

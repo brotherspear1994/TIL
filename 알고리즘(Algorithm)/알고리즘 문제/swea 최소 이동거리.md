@@ -22,7 +22,7 @@ A도시에는 E개의 일방통행 도로 구간이 있으며, 각 구간이 만
 
 각 줄마다 "#T" (T는 테스트 케이스 번호)를 출력한 뒤, 테스트 케이스에 대한 답을 출력한다.
 
-#### 풀이
+#### 풀이1
 
 ```python
 '''
@@ -84,3 +84,81 @@ for tc in range(1,int(input())+1):
 
 - 이 때는 MST Prim과 Dikjkstra를 잘 파악하고 있어서, 해당 유형의 문제가 나오면 공식 대입하듯 뚝딱 풀어냈다.
 - 위 풀이는 내가 직접 풀어본 풀이이다.
+
+#### 풀이2
+
+```python
+def dijkstra():
+    dist = [INF]*(N+1)
+    visit = [False]*(N+1)
+    dist[0] = 0
+
+    while False in visit:
+        minValue = INF
+        minIdx = -1
+
+        for i in range(N+1):
+            if dist[i] < minValue and not visit[i]:
+                minValue = dist[i]; minIdx = i
+        visit[minIdx] = True
+        for j in range(N+1):
+            if dist[j] > dist[minIdx]+adj[minIdx][j]:
+                dist[j] = dist[minIdx]+adj[minIdx][j]
+    return dist[N]
+
+for tc in range(1,int(input())+1):
+    N, E = map(int,input().split())
+    INF = 0xfffff
+    adj = [[INF]*(N+1) for _ in range(N+1)]
+
+    for _ in range(E):
+        s, e, w = map(int,input().split())
+        adj[s][e] = w
+    # print(adj)
+
+    print("#{} {}".format(tc, dijkstra()))
+```
+
+- 다익스트라 함수를 바깥 쪽에 두어 풀어보았다. 풀이1과 큰 차이점 없음.
+
+
+
+#### 풀이3
+
+```python
+import heapq
+
+def dijstra_heap():
+    dist = [0xfffff] * (V + 1)
+    visited = [False] * (V + 1)
+
+    heap = []
+    dist[0] = 0
+    # 가중치와 정점
+    heapq.heappush(heap, (0, 0))
+
+    while heap:
+        w, v = heapq.heappop(heap)
+
+        if not visited[v]:
+            visited[v] = True
+            dist[v] = w
+
+            for i in range(V + 1):
+                if not visited[i] and dist[i] > dist[v] + adj[v][i]:
+                    heapq.heappush(heap, (dist[v] + adj[v][i], i))
+
+        return dist[V]
+
+
+for tc in range(1, int(input()) + 1):
+    V, E = map(int, input().split())
+
+    adj = [[0xfffff] * (V + 1) for _ in range(V + 1)]
+    for i in range(E):
+        st, ed, w = map(int, input().split())
+        adj[st][ed] = w
+    print("#{} {}".format(tc, dijstra_heap()))
+```
+
+- heap 라이브러리를 활용한 풀이
