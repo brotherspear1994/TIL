@@ -52,6 +52,7 @@
 #### 풀이 1) while문 활용
 
 ```python
+# 좌측은 1 우측은 2
 def search(l, r, target):
     global cnt; global dir; global boolean
     while l <= r and boolean:

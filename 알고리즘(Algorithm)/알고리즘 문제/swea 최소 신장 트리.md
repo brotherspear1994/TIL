@@ -134,3 +134,66 @@ for tc in range(1,int(input())+1):
 
 - heap 라이브러리를 이용한 풀이법.
 - 위 세가지 방식으로 문제를 다 풀어보았다.
+
+#### 풀이4
+
+```python
+'''
+3
+2 3
+0 1 1
+0 2 1
+1 2 6
+4 7
+0 1 9
+0 2 3
+0 3 7
+1 4 2
+2 3 8
+2 4 1
+3 4 8
+4 6
+0 1 10
+0 2 7
+1 4 2
+2 3 10
+2 4 3
+3 4 10
+'''
+
+for tc in range(1,int(input())+1):
+    V, E = map(int,input().split())
+    adj = [[0]*(V+1) for _ in range(V+1)]
+    for _ in range(E):
+        n1, n2, w = map(int,input().split())
+        adj[n1][n2] = w
+        adj[n2][n1] = w
+    # for row in adj:
+    #     print(row)
+    # print()
+    visited = [0]*(V+1)
+    INF = 0xfffff
+    key = [INF]*(V+1)
+    res = 0
+
+    key[0] = 0
+
+    while 0 in visited:
+        minV = INF
+        minIdx = -1
+        for i in range(V+1):
+            if key[i] < minV and not visited[i]:
+                minV = key[i]
+                minIdx = i
+        visited[minIdx] = 1
+        res += minV
+        for j in range(V+1):
+            if not visited[j] and adj[minIdx][j] != 0:
+                if key[j] > adj[minIdx][j]:
+                    key[j] = adj[minIdx][j]
+
+    ans = sum(key)
+    print("#{} {}".format(tc,ans))
+```
+
+- 20201112 일자에 while문을 활용해 한번 더 풀어봤다.

@@ -23,7 +23,7 @@
 
 각 줄마다 "#T" (T는 테스트 케이스 번호)를 출력한 뒤, 답을 출력한다.
 
-#### 풀이
+#### 풀이1
 
 ```python
 '''
@@ -86,3 +86,41 @@ for tc in range(1,int(input())+1):
     visit = [-1]*1000001
     print("#%d" % tc, bfs2())
 ```
+
+
+
+#### 풀이2 (최종 예시)
+
+```python
+from collections import deque
+def calc(N, k):
+    if k == 0:
+        return N+1
+    if k == 1:
+        return N-1
+    if k == 2:
+        return N*2
+    if k == 3:
+        return N-10
+
+def bfs(N,M):
+    Q = deque()
+    Q.append((N,0))
+    visit[N] = tc
+    while Q:
+        n, cnt = Q.popleft()
+        for i in range(4):
+            next_n = calc(n, i)
+            if next_n == M:
+                return cnt+1
+            else:
+                if 0<=next_n<1000000 and visit[next_n] != tc:
+                    Q.append((next_n,cnt+1))
+                    visit[next_n] = tc
+
+visit = [0]*1000001
+for tc in range(1,int(input())+1):
+    N ,M = map(int, input().split())
+    print("#{} {}".format(tc, bfs(N,M)))
+```
+

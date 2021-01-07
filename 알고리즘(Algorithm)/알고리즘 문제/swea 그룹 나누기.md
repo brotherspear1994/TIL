@@ -50,7 +50,7 @@ for tc in range(1, int(input())+1):
     print("#{} {}".format(tc, ans))
 ```
 
-- 문제를 보고 find, union 을 구현해보라 하는 것 같아 복습 및 응용겸 굳이 find_set과 union을 직접 만들어 풀어보았다.
+- find_set과 union 알고리즘 코드를 배운후 그대로 응용해서 다시 짜봄.(20201112)
 
 #### 풀이2
 
@@ -85,4 +85,49 @@ for tc in range(1,int(input())+1):
 ```
 
 - 풀이2는 교수님 것인데, 교수님은 굳이 find_set과 union 알고리즘을 사용하시지는 않았다...
+
+#### 풀이3
+
+```python
+'''
+3
+5 2
+1 2 3 4
+5 3
+1 2 2 3 4 5
+7 4
+2 3 4 5 4 6 7 4
+'''
+def make_set(v):
+    students[v] = v
+
+def find_set(x):
+    if students[x] == x:
+        return x
+    else:
+        X = find_set(students[x])
+        students[x] = X
+        return X
+
+def union(x,y):
+    students[find_set(y)] = find_set(x)
+
+for tc in range(1,int(input())+1):
+    N, M = map(int,input().split())
+    reg = list(map(int,input().split()))
+    # print(reg)
+    students = [0]*(N+1)
+    for i in range(N+1):
+        make_set(i)
+
+    for i in range(M):
+        union(reg[2*i], reg[2*i+1])
+
+    for i in range(N+1):
+        find_set(i)
+    ans = len(list(set(students)))-1
+    print("#{} {}".format(tc,ans))
+```
+
+- 문제를 보고 find, union 을 구현해보라 하는 것 같아 복습 및 응용겸 굳이 find_set과 union을 직접 만들어 풀어보았다.
 
