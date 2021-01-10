@@ -119,3 +119,45 @@ for tc in range(1,T+1):
 - 백트랙킹은 코딩을 배운지 약 5개월쯤 된 나도 여전히 어려워 하는 부분이다.
 - 앞으로도 꾸준히 프로그램 구동 시간을 줄일 수 있는 백트랙킹 연습을 해야겠다.
 
+#### 풀이5(20201204에 다시 풀어 봄)
+
+````python
+def solve(r,acc):
+    if r == N:
+        if not acc in ans:
+            ans.add(acc)
+        return
+    solve(r+1, acc)
+    solve(r+1, acc+arr[r])
+
+for tc in range(1,int(input())+1):
+    N = int(input())
+    arr = list(map(int,input().split()))
+    ans = set()
+    solve(0,0)
+
+    print("#%d %d"%(tc, len(ans)))
+````
+
+
+
+#### 풀이6(20201204에 다시 풀어 봄)
+
+```python
+import copy
+
+for tc in range(1,int(input())+1):
+    N = int(input())
+    scores = list(map(int,input().split()))
+    visit = [1]+[0]*sum(scores)
+    ans = [0]
+    for score in scores:
+        temp = copy.deepcopy(ans)
+        for prescore in temp:
+            if visit[score+prescore]:
+                continue
+            else:
+                visit[score+prescore] = 1
+                ans.append(score+prescore)
+    print("#%d %d"%(tc, len(ans)))
+```
