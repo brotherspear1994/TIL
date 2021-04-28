@@ -200,3 +200,6 @@ for _ in range(1,11):
 
 - Stack을 세가지 방법으로 익혀보았다.
 - 기본 개념학습 후 혼자 코드를 짜보는 시간을 가져본 후에는 SWEA의 Stack 응용문제를 풀어보는 시간을 가졌다.
+- ![Stack Structure](https://miro.medium.com/max/1100/1*S2ujFRrOU_GJQOhhQD8LyA.png)
+- 스택은 선입후출 자료구조.
+- 마지막에 들어온 것이 먼저 나가는 LIFO(Last In First Out) 구조를 가진 자료 구조

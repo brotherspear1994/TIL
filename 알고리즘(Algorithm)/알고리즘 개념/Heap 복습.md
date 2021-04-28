@@ -160,8 +160,9 @@ print()
 ```
 
 - heap을 학습한지 오래돼 heap 알고리즘을 다시 복습했다.
-
 - MST Prim이나 Dijkstra 알고리즘 문제를 해결할때 heap을 활용하면 자동으로 가중치를 오름차순으로 정렬해주기 때문에 유용하여, heap을 활용해 문제들을 풀기위해 복습했다.
 
-  
 
+---
+
+- Heap 개념 관련 사이트: https://reakwon.tistory.com/42
